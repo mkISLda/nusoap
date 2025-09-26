@@ -4562,7 +4562,11 @@ class nusoap_server extends nusoap_base
             die('You must provide an array for operation outputs');
         }
         if (!$soapaction) {
-            if (isset($_SERVER)) {
+            if (isset($_SERVER['HTTP_HOST'])) {
+                $SERVER_NAME = $_SERVER['HTTP_HOST'];
+                $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
+                $HTTPS = isset($_SERVER['HTTPS']) ? $_SERVER['HTTPS'] : (isset($HTTP_SERVER_VARS['HTTPS']) ? $HTTP_SERVER_VARS['HTTPS'] : 'off');
+            } elseif (isset($_SERVER)) {
                 $SERVER_NAME = $_SERVER['SERVER_NAME'];
                 $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
                 $HTTPS = isset($_SERVER['HTTPS']) ? $_SERVER['HTTPS'] : (isset($HTTP_SERVER_VARS['HTTPS']) ? $HTTP_SERVER_VARS['HTTPS'] : 'off');
@@ -4645,7 +4649,12 @@ class nusoap_server extends nusoap_base
     {
         global $HTTP_SERVER_VARS;
 
-        if (isset($_SERVER['SERVER_NAME'])) {
+        if (isset($_SERVER['HTTP_HOST'])) {
+            $SERVER_NAME = $_SERVER['HTTP_HOST'];
+            $SERVER_PORT = $_SERVER['SERVER_PORT'];
+            $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
+            $HTTPS = isset($_SERVER['HTTPS']) ? $_SERVER['HTTPS'] : (isset($HTTP_SERVER_VARS['HTTPS']) ? $HTTP_SERVER_VARS['HTTPS'] : 'off');
+        } elseif (isset($_SERVER['SERVER_NAME'])) {
             $SERVER_NAME = $_SERVER['SERVER_NAME'];
             $SERVER_PORT = $_SERVER['SERVER_PORT'];
             $SCRIPT_NAME = $_SERVER['SCRIPT_NAME'];
