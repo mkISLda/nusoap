@@ -4700,7 +4700,7 @@ class nusoap_server extends nusoap_base
 
         $this->wsdl = new wsdl;
         $this->wsdl->serviceName = $serviceName;
-        $this->wsdl->soap_defencoding = $this->soap_defencoding;
+        // $this->wsdl->soap_defencoding = $this->soap_defencoding;
         $this->wsdl->endpoint = $endpoint;
         $this->wsdl->namespaces['tns'] = $namespace;
         $this->wsdl->namespaces['soap'] = 'http://schemas.xmlsoap.org/wsdl/soap/';
