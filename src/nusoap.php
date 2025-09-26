@@ -151,7 +151,7 @@ class nusoap_base
      * @access   public
      */
     // var $soap_defencoding = 'ISO-8859-1';
-    var $soap_defencoding = 'UTF-8';
+    var $soap_defencoding = 'UTF-16';
 
     /**
      * namespaces in an array of prefix => uri
