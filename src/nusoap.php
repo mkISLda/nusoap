@@ -6781,6 +6781,23 @@ class nusoap_parser extends nusoap_base
         if (!empty($xml)) {
             // Check XML encoding
             $xml = str_replace('utf-16', 'UTF-8', $xml);
+            
+            $xml = str_replace('RecordgetBillingClients', 'Record.getBillingClients', $xml);
+            $xml = str_replace('RecordgetProducts', 'Record.getProducts', $xml);
+            $xml = str_replace('RecordgetVatRates', 'Record.getVatRates', $xml);
+            $xml = str_replace('RecordgetInvoices', 'Record.getInvoices', $xml);
+            $xml = str_replace('RecordgetInvoicesV2', 'Record.getInvoicesV2', $xml);
+            $xml = str_replace('RecordgetInvoice', 'Record.getInvoice', $xml);
+            $xml = str_replace('RecordsetInvoiceDocNumber', 'Record.setInvoiceDocNumber', $xml);
+            $xml = str_replace('RecordsetInvoiceFilePath', 'Record.setInvoiceFilePath', $xml);
+            $xml = str_replace('RecordsetInvoiceExternalDocument', 'Record.setInvoiceExternalDocument', $xml);
+            $xml = str_replace('RecordsetMultipleInvoiceExternalDocument', 'Record.setMultipleInvoiceExternalDocument', $xml);
+            $xml = str_replace('RecordcorrectInvoice', 'Record.correctInvoice', $xml);
+            $xml = str_replace('RecordsettleInvoice', 'Record.settleInvoice', $xml);
+            $xml = str_replace('RecordsetReceipt', 'Record.setReceipt', $xml);
+            $xml = str_replace('RecordremovePrivateToken', 'Record.removePrivateToken', $xml);
+            $xml = str_replace('RecordsetClientExternalId', 'Record.setClientExternalId', $xml);
+
             $pos_xml = strpos($xml, '<?xml');
             if ($pos_xml !== false) {
                 $xml_decl = substr($xml, $pos_xml, strpos($xml, '?>', $pos_xml + 2) - $pos_xml + 1);
