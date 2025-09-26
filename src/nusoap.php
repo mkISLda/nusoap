@@ -6780,6 +6780,7 @@ class nusoap_parser extends nusoap_base
         // Check whether content has been read.
         if (!empty($xml)) {
             // Check XML encoding
+            $xml = str_replace('utf-16', 'UTF-8', $xml);
             $pos_xml = strpos($xml, '<?xml');
             if ($pos_xml !== false) {
                 $xml_decl = substr($xml, $pos_xml, strpos($xml, '?>', $pos_xml + 2) - $pos_xml + 1);
