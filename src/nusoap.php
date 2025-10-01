@@ -6797,6 +6797,12 @@ class nusoap_parser extends nusoap_base
             $xml = str_replace('RecordsetReceipt', 'Record.setReceipt', $xml);
             $xml = str_replace('RecordremovePrivateToken', 'Record.removePrivateToken', $xml);
             $xml = str_replace('RecordsetClientExternalId', 'Record.setClientExternalId', $xml);
+            $xml = str_replace('RecordsetService', 'Record.setService', $xml);
+            $xml = str_replace('RecordsetServiceReviewed', 'Record.setServiceReviewed', $xml);
+            $xml = str_replace('RecordsetServiceCares', 'Record.setServiceCares', $xml);
+            $xml = str_replace('RecordsetTransportService', 'Record.setTransportService', $xml);
+            $xml = str_replace('RecordsetServiceV2', 'Record.setServiceV2', $xml);
+            $xml = str_replace('RecordsetServiceV3', 'Record.setServiceV3', $xml);
 
             $pos_xml = strpos($xml, '<?xml');
             if ($pos_xml !== false) {
